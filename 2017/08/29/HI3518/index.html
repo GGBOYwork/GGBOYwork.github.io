@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="花自飘零水自流">
 <meta property="og:description" content="一、电源设计建议1、CORE 电源设计 CORE 电源（管脚名 DVDD12）：连接数字 1.2V 电源DVDD12 的设计，电源芯片的选型上，要求其供电能力不少于 2A，在 DVDD12 上至少放置 1个 10μF 对地滤波旁路电容，每个 DVDD12 管脚处至少放置一个 100nF 去耦电容，并紧靠供电管脚摆放。  注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 10">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-29T12:51:34.000Z">
+<meta property="og:updated_time" content="2017-09-02T07:57:53.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="花自飘零水自流">
 <meta name="twitter:description" content="一、电源设计建议1、CORE 电源设计 CORE 电源（管脚名 DVDD12）：连接数字 1.2V 电源DVDD12 的设计，电源芯片的选型上，要求其供电能力不少于 2A，在 DVDD12 上至少放置 1个 10μF 对地滤波旁路电容，每个 DVDD12 管脚处至少放置一个 100nF 去耦电容，并紧靠供电管脚摆放。  注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 10">
@@ -188,7 +188,8 @@
         <h1 id="一、电源设计建议"><a href="#一、电源设计建议" class="headerlink" title="一、电源设计建议"></a>一、电源设计建议</h1><h2 id="1、CORE-电源设计"><a href="#1、CORE-电源设计" class="headerlink" title="1、CORE 电源设计"></a>1、CORE 电源设计</h2><blockquote>
 <p>CORE 电源（管脚名 DVDD12）：连接数字 1.2V 电源DVDD12 的设计，电源芯片的选型上，要求其供电能力不少于 2A，在 DVDD12 上至少放置 1个 10μF 对地滤波旁路电容，每个 DVDD12 管脚处至少放置一个 100nF 去耦电容，并紧靠供电管脚摆放。</p>
 <ul>
-<li>注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 100NF 滤波电容靠近电源管脚放置，减少寄生电感。滤波电容需要均<br>匀放置在 CORE 电源管脚上<h2 id="2、IO-电源设计"><a href="#2、IO-电源设计" class="headerlink" title="2、IO 电源设计"></a>2、IO 电源设计</h2>IO 电源（管脚名 DVDD33）：连接数字 3.3V 电源，在 DVDD33 上至少放置 1 个 10μF 对地滤波旁路电容，每个 DVDD33 管脚处放置 100nF 去耦电容。并紧靠供电管脚摆放。<br>VI 接口电源（管脚名 DVDD3318）： Hi3518 Sensor CLK、 VI 部分和 SPI0 部分的 IO 电源可以同时支持 1.8V 和 3.3V，用以兼容不同厂家 Sensor 的 IO 电平标准。 DVDD3318的最大电流 TBD，其管脚处至少放置 100nF 去耦电容，并紧靠供电管脚摆放。<h2 id="3、DDR-电源设计"><a href="#3、DDR-电源设计" class="headerlink" title="3、DDR 电源设计"></a>3、DDR 电源设计</h2>电源需要 1.5V/1.8V，参考电压 Vref 需要 0.75V/0.9V。必须把 Hi3518 的 1.5V/1.8V 电源与 DDR 颗粒的1.5V/1.8V 电源统一。<br>在每个电源管脚处放置一个 100nF 的陶瓷滤波电容，并紧靠供电管脚摆放；整个DDR3 SDRAM 功能单元供电电源至少有一个 10μF 的对地滤波电容。</li>
+<li>注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 100NF 滤波电容靠近电源管脚放置，减少寄生电感。滤波电容需要均<br>匀放置在 CORE 电源管脚上<a id="more"></a>
+<h2 id="2、IO-电源设计"><a href="#2、IO-电源设计" class="headerlink" title="2、IO 电源设计"></a>2、IO 电源设计</h2>IO 电源（管脚名 DVDD33）：连接数字 3.3V 电源，在 DVDD33 上至少放置 1 个 10μF 对地滤波旁路电容，每个 DVDD33 管脚处放置 100nF 去耦电容。并紧靠供电管脚摆放。<br>VI 接口电源（管脚名 DVDD3318）： Hi3518 Sensor CLK、 VI 部分和 SPI0 部分的 IO 电源可以同时支持 1.8V 和 3.3V，用以兼容不同厂家 Sensor 的 IO 电平标准。 DVDD3318的最大电流 TBD，其管脚处至少放置 100nF 去耦电容，并紧靠供电管脚摆放。<h2 id="3、DDR-电源设计"><a href="#3、DDR-电源设计" class="headerlink" title="3、DDR 电源设计"></a>3、DDR 电源设计</h2>电源需要 1.5V/1.8V，参考电压 Vref 需要 0.75V/0.9V。必须把 Hi3518 的 1.5V/1.8V 电源与 DDR 颗粒的1.5V/1.8V 电源统一。<br>在每个电源管脚处放置一个 100nF 的陶瓷滤波电容，并紧靠供电管脚摆放；整个DDR3 SDRAM 功能单元供电电源至少有一个 10μF 的对地滤波电容。</li>
 <li>Hi3518 和 DDR2/3 SDRAM 的 VREF（ 0.9V/0.75V）电源都必须和其他电源隔离，可以通过较宽的走线（ 20mil 及以上）连接，保证每个电源管脚尽可能就近摆放去耦电容，并且最好在 PCB 上对 VREF 加包地屏蔽处理。 DDR2/3 颗粒 1.5V/1.8V 电源管脚Hi3518 DDR 1.5V/1.8V 电源管脚连接到同一个电源网络，每个电源管脚旁边尽可能就近摆放去耦电容。</li>
 <li>每个 VREF pin 要加去耦电容且走线尽量宽，与其他信号线间隔 20mil～25mil。<h1 id="二、外围接口设计建议"><a href="#二、外围接口设计建议" class="headerlink" title="二、外围接口设计建议"></a>二、外围接口设计建议</h1><h2 id="1、USB接口"><a href="#1、USB接口" class="headerlink" title="1、USB接口"></a>1、USB接口</h2>模拟电源 AVDD33_USB 要求与数字电源隔离，推荐采用平面方式，以减小寄生效<br>应、耦合噪声和供电阻抗，并在芯片邻近管脚摆放的滤波电容。<br>数字电源和地 DVDD12_USB/DVSS_USB 也应避免受干扰，尽量使用短而宽的走线。<br>为<br>了避免保护器件对 USB 走线信号造成影响，并能够达到良好的保护效果，建议 PCB<br>设计时采用如下原则：</li>
 <li>保护器件建议紧靠 USB 连接器端口放置。</li>
@@ -270,7 +271,7 @@
         <p><span>本文标题:</span><a href="/2017/08/29/HI3518/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 泽果锅 的个人博客">泽果锅</a></p>
         <p><span>发布时间:</span>2017年08月29日 - 20时51分</p>
-        <p><span>最后更新:</span>2017年08月29日 - 20时51分</p>
+        <p><span>最后更新:</span>2017年09月02日 - 15时57分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/29/HI3518/" title="">http://tobeshow.top/2017/08/29/HI3518/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tobeshow.top/2017/08/29/HI3518/　　作者: 泽果锅" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

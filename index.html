@@ -186,34 +186,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="一、电源设计建议"><a href="#一、电源设计建议" class="headerlink" title="一、电源设计建议"></a>一、电源设计建议</h1><h2 id="1、CORE-电源设计"><a href="#1、CORE-电源设计" class="headerlink" title="1、CORE 电源设计"></a>1、CORE 电源设计</h2><blockquote>
+              <h1 id="一、电源设计建议"><a href="#一、电源设计建议" class="headerlink" title="一、电源设计建议"></a>一、电源设计建议</h1><h2 id="1、CORE-电源设计"><a href="#1、CORE-电源设计" class="headerlink" title="1、CORE 电源设计"></a>1、CORE 电源设计</h2><blockquote>
 <p>CORE 电源（管脚名 DVDD12）：连接数字 1.2V 电源DVDD12 的设计，电源芯片的选型上，要求其供电能力不少于 2A，在 DVDD12 上至少放置 1个 10μF 对地滤波旁路电容，每个 DVDD12 管脚处至少放置一个 100nF 去耦电容，并紧靠供电管脚摆放。</p>
 <ul>
-<li>注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 100NF 滤波电容靠近电源管脚放置，减少寄生电感。滤波电容需要均<br>匀放置在 CORE 电源管脚上<h2 id="2、IO-电源设计"><a href="#2、IO-电源设计" class="headerlink" title="2、IO 电源设计"></a>2、IO 电源设计</h2>IO 电源（管脚名 DVDD33）：连接数字 3.3V 电源，在 DVDD33 上至少放置 1 个 10μF 对地滤波旁路电容，每个 DVDD33 管脚处放置 100nF 去耦电容。并紧靠供电管脚摆放。<br>VI 接口电源（管脚名 DVDD3318）： Hi3518 Sensor CLK、 VI 部分和 SPI0 部分的 IO 电源可以同时支持 1.8V 和 3.3V，用以兼容不同厂家 Sensor 的 IO 电平标准。 DVDD3318的最大电流 TBD，其管脚处至少放置 100nF 去耦电容，并紧靠供电管脚摆放。<h2 id="3、DDR-电源设计"><a href="#3、DDR-电源设计" class="headerlink" title="3、DDR 电源设计"></a>3、DDR 电源设计</h2>电源需要 1.5V/1.8V，参考电压 Vref 需要 0.75V/0.9V。必须把 Hi3518 的 1.5V/1.8V 电源与 DDR 颗粒的1.5V/1.8V 电源统一。<br>在每个电源管脚处放置一个 100nF 的陶瓷滤波电容，并紧靠供电管脚摆放；整个DDR3 SDRAM 功能单元供电电源至少有一个 10μF 的对地滤波电容。</li>
-<li>Hi3518 和 DDR2/3 SDRAM 的 VREF（ 0.9V/0.75V）电源都必须和其他电源隔离，可以通过较宽的走线（ 20mil 及以上）连接，保证每个电源管脚尽可能就近摆放去耦电容，并且最好在 PCB 上对 VREF 加包地屏蔽处理。 DDR2/3 颗粒 1.5V/1.8V 电源管脚Hi3518 DDR 1.5V/1.8V 电源管脚连接到同一个电源网络，每个电源管脚旁边尽可能就近摆放去耦电容。</li>
-<li>每个 VREF pin 要加去耦电容且走线尽量宽，与其他信号线间隔 20mil～25mil。<h1 id="二、外围接口设计建议"><a href="#二、外围接口设计建议" class="headerlink" title="二、外围接口设计建议"></a>二、外围接口设计建议</h1><h2 id="1、USB接口"><a href="#1、USB接口" class="headerlink" title="1、USB接口"></a>1、USB接口</h2>模拟电源 AVDD33_USB 要求与数字电源隔离，推荐采用平面方式，以减小寄生效<br>应、耦合噪声和供电阻抗，并在芯片邻近管脚摆放的滤波电容。<br>数字电源和地 DVDD12_USB/DVSS_USB 也应避免受干扰，尽量使用短而宽的走线。<br>为<br>了避免保护器件对 USB 走线信号造成影响，并能够达到良好的保护效果，建议 PCB<br>设计时采用如下原则：</li>
-<li>保护器件建议紧靠 USB 连接器端口放置。</li>
-<li>保护器件建议选用低寄生电容的 TVS 管保护器件，击穿电压 8kV，相应时间小于1ns。</li>
-<li>建议 USB2.0 高速端口保护器件的寄生电容小于 1pF<h2 id="2、MAC-接口"><a href="#2、MAC-接口" class="headerlink" title="2、MAC 接口"></a>2、MAC 接口</h2>MAC 所有信号为点对点拓扑结构（示例对接芯片为 LAN8740A）。建议 PCB 走线控制<br>在 6inch 以内。电阻匹配设计建议如下：</li>
-<li>MDIO 需要接上拉电阻，电阻值为 4.7kΩ。</li>
-<li>TXD0～TXD3 信号和 Hi3518 端直连即可。</li>
-<li>MII 模式下， TXCK 信号在对接芯片端（即网口 PHY）端要串联 33Ω 电阻。 RMII模式下， TXCK 复用为 RMII_CLK，需要在 Hi3518 端串联 33Ω电阻。</li>
-<li>RXD0～RXD3 信号和 Hi3518 端直连即可。</li>
-<li>RXCK 信号在对接芯片端（即网口 PHY）串联 33Ω 电阻。<h1 id="三、Sensor-板设计"><a href="#三、Sensor-板设计" class="headerlink" title="三、Sensor 板设计"></a>三、Sensor 板设计</h1></li>
-<li>为了保证图像质量， Sensor 的电源部分推荐采用 LDO 供电。其中 Sensor 的模拟电源和 PLL 电源需要重点关注。一般来说 Sensor 的 core 单元需要的电流较大，在设计其电源时候要考虑 LDO 的效率和散热。</li>
-<li>Senosr 的模拟部分和数字部分分开设计。模拟地和数字地分开，采用 0ohm 电阻单点连接；模拟电源支路采用单独的 LDO 供电，不要和数字电源共用电源支路。在设计 PCB 布局和层叠结构的时候，模拟部分和数字部分不要有任何的穿插，防止干扰相互耦合。</li>
-<li>Sensor 板与主板之间如果采用连接器进行互连，在设计连接器定义的时候，请注意保证连接器上面的数据信号的回流路径，以防止信号串扰。连接器定义时，每两根数据信号加一根地线回流，时钟信号单独加一根地线回流。具体内容请参考原理图<h1 id="LAYOUT注意事项"><a href="#LAYOUT注意事项" class="headerlink" title="LAYOUT注意事项"></a>LAYOUT注意事项</h1>建议 PCB 布线设计采用以下原则：</li>
-<li>为减小信号反射，建议所有 DDR3 SDRAM 接口信号走线避免穿越电源地分割区域，保持完整的电源地参考平面，单板 PCB 设计时传输线阻抗控制在 50Ω±10%，DDR3 时钟差分线阻抗控制在 100Ω±10%。</li>
-<li>信号走线及换层过孔附近放置与地连通的过孔，保持良好的信号回流路径；</li>
-<li>信号线尽量短，走线路径上尽量少打过孔，保证走线阻抗的连续性。</li>
-<li>使用排阻时，同一排阻上的信号须属于同一 DDR 信号线组，尤其避免 DQS 与地址/控制线分布在同一个排阻上；</li>
-<li>相邻信号走线间距保持在 2～3 倍线宽，即满足“ 3W”原则；</li>
-<li>避免地址信号紧邻数据信号。</li>
-<li>DDR3 SDRAM 信号与非 DDR3 SDRAM 信号走线间隔至少 20mil。</li>
-<li>每个 VREF pin 要加去耦电容且走线尽量宽，与其他信号线间隔 20mil～25mil；</li>
-</ul>
-</blockquote>
-
+<li>注意 Core 电源通道必须满足至少 1A 的过电流能力。使用平面供电， 100NF 滤波电容靠近电源管脚放置，减少寄生电感。滤波电容需要均<br>匀放置在 CORE 电源管脚上
+          
       
       
     </div>
@@ -223,6 +200,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/29/HI3518/#more">加载全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
